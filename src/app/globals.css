@@ -118,7 +118,7 @@ nav input{
   width: 30vw;
 }
 
-.groups{
+.groups-wrapper{
   display: flex;
   padding: 1rem;
   gap: 1rem;
