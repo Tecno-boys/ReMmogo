@@ -105,7 +105,13 @@ nav .actions{
   width: 7vw;
 }
 
-nav .actions>*, nav input{
+.search{
+  display: flex;
+  align-items: center;
+}
+
+nav button, 
+nav input{
   height: 6vh;
 }
 
@@ -125,10 +131,12 @@ nav input{
 }
 
 .group{
+  display: flex;
+  flex-direction: column;
   aspect-ratio: 1/1;
   width: 20vw;
   text-align: center;
-  align-items: center;
+  justify-content: center;
 
   border: 1px solid black;
 }

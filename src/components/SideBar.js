@@ -1,5 +1,5 @@
 import { List,Home,Search,Calendar,GroupIcon,
-    MessageSquare, Settings, LucideLogOut,HelpCircle } from "lucide-react";
+    MessageSquare, Settings, LucideLogOut,HelpCircle,Compass } from "lucide-react";
 
 export default function SideBar(){
     return (
@@ -12,7 +12,7 @@ export default function SideBar(){
                 <h3>Menu</h3>
                 <ul>
                     <li><a href="/"><Home /><p>Home</p></a></li>
-                    <li><a href="/search"><Search /><p>Search</p></a></li>
+                    <li><a href="/explore"><Compass /><p>Explore</p></a></li>
                     <li><a href="/events"><Calendar /><p>Events</p></a></li>
                     <li><a href="/messages"><MessageSquare /><p>Messages</p></a></li>
                 </ul>

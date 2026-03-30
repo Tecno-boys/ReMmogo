@@ -6,12 +6,12 @@ export default function Groups (){
             <h1>Groups</h1>
             <div className="groups-wrapper">
             <div className="group">
-                 <Users />
+                 <p><Users /></p>
                 <h2>Group 1</h2>
                 <p>Description of Group 1</p>
             </div>
             <div className="group">
-                <Users />
+                <p><Users /></p>
                 <h2>Group 2</h2>
                 <p>Description of Group 2</p>
             </div>
