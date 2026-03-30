@@ -1,10 +1,11 @@
 import NavBar  from "./NavBar";
+import Groups from "./Groups";
 
 export default function Main() {
     return (
         <main>
             <NavBar />
-            <p>Your one-stop platform for connecting with friends, discovering events, and sharing your moments.</p>
+            <Groups />
         </main>
     );
 }

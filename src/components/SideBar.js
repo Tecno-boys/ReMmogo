@@ -13,7 +13,6 @@ export default function SideBar(){
                 <ul>
                     <li><a href="/"><Home /><p>Home</p></a></li>
                     <li><a href="/search"><Search /><p>Search</p></a></li>
-                    <li><a href="/groups"><GroupIcon /><p>Groups</p></a></li>
                     <li><a href="/events"><Calendar /><p>Events</p></a></li>
                     <li><a href="/messages"><MessageSquare /><p>Messages</p></a></li>
                 </ul>
@@ -27,7 +26,7 @@ export default function SideBar(){
                 </ul>
             </div>
             <div className="profile">
-                <img src="/profile-pic.jpg" alt="Profile Picture" />
+                <img src="https://tse1.mm.bing.net/th/id/OIP.hZaP6EonKH3G5ZgjAajs9AHaEo?w=1920&h=1200&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Profile Picture" />
                 <div className="accInfo">
                     <p>John Doe</p>
                     <p>john.doe@example.com</p>

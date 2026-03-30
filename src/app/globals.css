@@ -9,6 +9,7 @@
   --main-v2: hsl(120, 100%, 35%);
   --main-v3:  hsl(120, 100%, 40%);
   --main-txt:hsl(0, 0%, 100%);
+  --nav-color: grey;
   --second-main-txt:hsl(120, 100%, 80%);
 }
 
@@ -18,7 +19,7 @@ ul,ol,li,a{
 }
 
 aside{
-  width: 20vw;
+  flex: 1;
   display: flex;
   flex-direction: column;
   padding: 1vw;
@@ -69,9 +70,9 @@ aside a{
 }
 
 .profile img{
-  aspect-ratio: 1/1;
   border-radius: 100%;
-  width: 30px;
+  width: 60px;
+  aspect-ratio: 1/1;
 }
 
 .profile .accInfo{
@@ -81,5 +82,53 @@ aside a{
 }
 
 main{
-  margin-left: 20vw;
+  flex: 4;
+}
+
+body{
+  display: flex;
+}
+
+nav{
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  padding-inline: 3vw;
+  align-items: center;
+
+  background-color: var(--nav-color);
+}
+
+nav .actions{
+  display: flex;
+  justify-content: space-evenly;
+  width: 7vw;
+}
+
+nav .actions>*, nav input{
+  height: 6vh;
+}
+
+nav button{
+  aspect-ratio: 1/1;
+}
+
+nav input{
+  padding-inline: 20px;
+  width: 30vw;
+}
+
+.groups{
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.group{
+  aspect-ratio: 1/1;
+  width: 20vw;
+  text-align: center;
+  align-items: center;
+
+  border: 1px solid black;
 }
