@@ -1,97 +1,223 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import './LoginPage.css'
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { Mail, Lock, User, Eye, EyeOff, ArrowRight, Check } from "lucide-react"
+import "./LoginPage.css"
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [showPass, setShowPass] = useState(false)
   const navigate = useNavigate()
+  const [showSignUp, setShowSignUp] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
-  function handleSubmit(e) {
+  const [signInEmail, setSignInEmail] = useState("")
+  const [signInPassword, setSignInPassword] = useState("")
+  const [signUpName, setSignUpName] = useState("")
+  const [signUpEmail, setSignUpEmail] = useState("")
+  const [signUpPassword, setSignUpPassword] = useState("")
+
+  function handleSignIn(e) {
     e.preventDefault()
-    // TODO: integrate auth (Keycloak / API)
-    navigate('/personal-dashboard')
+    navigate("/personal-dashboard")
+  }
+
+  function handleSignUp(e) {
+    e.preventDefault()
+    navigate("/personal-dashboard")
   }
 
   return (
-    <div className="login-root">
-      <div className="login-aurora" />
+    <div className="login-page">
+      <button className="login-back-button" onClick={() => navigate("/")}>
+        ← Back to home
+      </button>
+
       <div className="login-card">
-        <div className="login-brand">
-          <div className="login-logo">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-            </svg>
-          </div>
-          <span className="login-brand-name">FinanceUs</span>
-        </div>
 
-        <h1 className="login-title">Welcome back</h1>
-        <p className="login-subtitle">Sign in to manage your finances</p>
+        {/* ─── ILLUSTRATION PANEL (left side, slides right on signup) ─── */}
+        <div className={`login-illustration ${showSignUp ? "login-illustration--shifted" : ""}`}>
+          {/* clouds */}
+          <div className="login-cloud login-cloud--1" />
+          <div className="login-cloud login-cloud--2" />
+          <div className="login-cloud login-cloud--3" />
+          <div className="login-cloud login-cloud--4" />
 
-        <form onSubmit={handleSubmit}>
-          <div className="login-field">
-            <label className="login-label">Email</label>
-            <input
-              type="email"
-              className="login-input"
-              placeholder="you@example.com"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="login-field">
-            <label className="login-label">Password</label>
-            <div className="login-input-wrap">
-              <input
-                type={showPass ? 'text' : 'password'}
-                className="login-input"
-                placeholder="••••••••••"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                required
-              />
-              <button type="button" className="login-eye" onClick={() => setShowPass(v => !v)}>
-                {showPass ? 'Hide' : 'Show'}
-              </button>
+          {/* phone mockup */}
+          <div className="login-phone">
+            <div className="login-phone-notch" />
+            <div className="login-phone-screen">
+              <div className="login-phone-topbar">
+                <span className="login-phone-topbar-line" />
+                <span className="login-phone-topbar-menu" />
+              </div>
+              <div className="login-fingerprint">
+                <span className="login-fingerprint-ring login-fingerprint-ring--outer" />
+                <span className="login-fingerprint-ring login-fingerprint-ring--middle" />
+                <span className="login-fingerprint-ring login-fingerprint-ring--inner" />
+                <span className="login-fingerprint-dot" />
+              </div>
+              <div className="login-phone-progress-bar">
+                <div className="login-phone-progress-bar-fill" />
+              </div>
+              <span className="login-phone-label">Please tap your finger</span>
             </div>
           </div>
 
-          <div className="login-options">
-            <label className="login-remember">
-              <input type="checkbox" /> Remember me
-            </label>
-            <button type="button" className="login-forgot">Forgot password?</button>
+          {/* person illustration */}
+          <div className="login-person">
+            <div className="login-person-head" />
+            <div className="login-person-body" />
+            <div className="login-person-arm" />
+            <div className="login-person-leg login-person-leg--left" />
+            <div className="login-person-leg login-person-leg--right" />
+            <div className="login-person-bag" />
           </div>
 
-          <button type="submit" className="login-btn">
-            Sign In
-          </button>
-        </form>
+          {/* checkmark badge */}
+          <div className="login-check-badge">
+            <Check size={24} />
+          </div>
 
-        <div className="login-divider">or</div>
-
-        <button className="login-sso">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/>
-          </svg>
-          Continue with SSO
-        </button>
-
-        <div className="login-footer">
-          Don't have an account?{' '}
-          <button onClick={() => navigate('/')}>Sign up free</button>
+          {/* padlock icon */}
+          <div className="login-padlock">
+            <div className="login-padlock-shackle" />
+            <div className="login-padlock-body">
+              <div className="login-padlock-keyhole" />
+            </div>
+          </div>
         </div>
 
-        <div className="login-secure">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-          Secured by FinanceUs
+        {/* ─── FORM PANEL (right side, slider with both forms) ─── */}
+        <div className="login-form-panel">
+          <div
+            className="login-form-slider"
+            style={{ transform: showSignUp ? "translateX(-50%)" : "translateX(0)" }}
+          >
+            {/* ── SIGN IN FORM ── */}
+            <div className="login-form">
+              <div className="login-logo">
+                <span className="login-logo-dot" />
+                FinanceUs
+              </div>
+
+              <h1 className="login-heading">Holla,<br />Welcome Back</h1>
+              <p className="login-subtitle">Hey, welcome back to your special place</p>
+
+              <form onSubmit={handleSignIn}>
+                <div className="login-field">
+                  <div className="login-input-wrapper">
+                    <Mail size={16} className="login-input-icon" />
+                    <input
+                      className="login-input"
+                      type="email"
+                      placeholder="Email address"
+                      value={signInEmail}
+                      onChange={e => setSignInEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="login-field">
+                  <div className="login-input-wrapper">
+                    <Lock size={16} className="login-input-icon" />
+                    <input
+                      className="login-input"
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Password"
+                      value={signInPassword}
+                      onChange={e => setSignInPassword(e.target.value)}
+                      required
+                    />
+                    <button type="button" className="login-toggle-password" onClick={() => setShowPassword(v => !v)}>
+                      {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="login-options-row">
+                  <label className="login-remember">
+                    <input type="checkbox" defaultChecked /> Remember me
+                  </label>
+                  <button type="button" className="login-forgot-link">Forgot Password?</button>
+                </div>
+
+                <button type="submit" className="login-submit-button">
+                  Sign In <ArrowRight size={16} />
+                </button>
+              </form>
+
+              <p className="login-toggle-text">
+                Don't have an account?{" "}
+                <button onClick={() => setShowSignUp(true)}>Sign Up</button>
+              </p>
+            </div>
+
+            {/* ── SIGN UP FORM ── */}
+            <div className="login-form">
+              <div className="login-logo">
+                <span className="login-logo-dot" />
+                FinanceUs
+              </div>
+
+              <h1 className="login-heading">Create<br />Your Account</h1>
+              <p className="login-subtitle">Join FinanceUs and take control of your finances</p>
+
+              <form onSubmit={handleSignUp}>
+                <div className="login-field">
+                  <div className="login-input-wrapper">
+                    <User size={16} className="login-input-icon" />
+                    <input
+                      className="login-input"
+                      type="text"
+                      placeholder="Full name"
+                      value={signUpName}
+                      onChange={e => setSignUpName(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="login-field">
+                  <div className="login-input-wrapper">
+                    <Mail size={16} className="login-input-icon" />
+                    <input
+                      className="login-input"
+                      type="email"
+                      placeholder="Email address"
+                      value={signUpEmail}
+                      onChange={e => setSignUpEmail(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="login-field">
+                  <div className="login-input-wrapper">
+                    <Lock size={16} className="login-input-icon" />
+                    <input
+                      className="login-input"
+                      type={showConfirmPassword ? "text" : "password"}
+                      placeholder="Password"
+                      value={signUpPassword}
+                      onChange={e => setSignUpPassword(e.target.value)}
+                      required
+                    />
+                    <button type="button" className="login-toggle-password" onClick={() => setShowConfirmPassword(v => !v)}>
+                      {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                    </button>
+                  </div>
+                </div>
+
+                <button type="submit" className="login-submit-button">
+                  Create Account <ArrowRight size={16} />
+                </button>
+              </form>
+
+              <p className="login-toggle-text">
+                Already have an account?{" "}
+                <button onClick={() => setShowSignUp(false)}>Sign In</button>
+              </p>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   )

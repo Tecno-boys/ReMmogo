@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import {
   BarChart3, TrendingUp, PieChart, Eye, ArrowRight,
   Shield, Bell, Repeat, Users, Zap, Lock,
-  DollarSign, Activity, Wallet, ChevronRight, Check
+  Handshake, Activity, Wallet, ChevronRight, Check
 } from 'lucide-react'
 import './LandingPage.css'
 
@@ -23,14 +23,13 @@ function Navbar() {
       <div className="nav-inner">
         <div className="nav-brand">
           <div className="nav-logo">
-            <DollarSign size={18} />
+            <Handshake size={18} />
           </div>
-          <span>FinanceUs</span>
+          <span>ReMmogo</span>
         </div>
         <div className="nav-links">
           <a href="#home" className="nav-link active">Home</a>
-          <a href="#features" className="nav-link">Product</a>
-          <a href="#solutions" className="nav-link">Solutions</a>
+          <a href="#features" className="nav-link">About Us</a>
           <a href="#pricing" className="nav-link">Pricing</a>
         </div>
         <div className="nav-actions">
@@ -90,7 +89,7 @@ function DashboardPreview() {
         {/* Sidebar */}
         <div className="preview-sidebar">
           <div className="preview-sidebar-brand">
-            <div className="preview-logo-small"><DollarSign size={12} /></div>
+            <div className="preview-logo-small"><Handshake size={12} /></div>
             <span>FinanceUs</span>
           </div>
           <div className="preview-nav-items">
@@ -123,7 +122,7 @@ function DashboardPreview() {
           <div className="preview-section-title">Bills &amp; Payments</div>
           <div className="preview-cards-grid">
             <div className="preview-mini-card">
-              <div className="preview-mini-icon"><DollarSign size={14} /></div>
+              <div className="preview-mini-icon"><Handshake size={14} /></div>
               <div className="preview-mini-label">Business Revenue</div>
               <div className="preview-mini-value">+$12,480.00</div>
               <div className="preview-mini-change positive">↑ 6.4% vs last month</div>
@@ -310,7 +309,7 @@ function FinancialHealth() {
           </div>
           <div className="income-cards">
             <div className="income-mini-card">
-              <div className="income-mini-icon"><DollarSign size={12} /></div>
+              <div className="income-mini-icon"><Handshake size={12} /></div>
               <div className="income-mini-value">+$420.00</div>
               <div className="income-mini-change positive">↑ 0.8% vs last month</div>
             </div>
@@ -428,7 +427,7 @@ function Footer() {
         <a href="#pricing">Pricing</a>
       </div>
       <div className="footer-logo-mark">
-        <DollarSign size={48} />
+        <Handshake size={48} />
       </div>
     </footer>
   )

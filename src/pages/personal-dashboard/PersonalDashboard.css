@@ -1,13 +1,33 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  background: #f5f4ef;
+  color: #1a1a18;
+}
+
 .dash {
   display: flex;
   height: 100vh;
   min-height: 600px;
   background: #f5f4ef;
-  font-size: 13px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* ---- Sidebar ---- */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ================================Sidebar================================ */
 .sidebar {
   width: 160px;
   flex-shrink: 0;
@@ -25,7 +45,7 @@
   border-bottom: 0.5px solid #e0ddd5;
 }
 
-.logoIcon {
+.logo-icon {
   width: 28px;
   height: 28px;
   background: #2c3e1f;
@@ -38,13 +58,13 @@
   font-weight: 500;
 }
 
-.logoText {
+.logo-text {
   font-size: 13px;
   font-weight: 500;
   color: #1a1a18;
 }
 
-.logoK {
+.logo-k {
   margin-left: auto;
   font-size: 11px;
   color: #888;
@@ -58,7 +78,7 @@
   padding: 12px 0;
 }
 
-.navItem {
+.nav-item {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -69,38 +89,38 @@
   transition: background 0.15s;
 }
 
-.navItem:hover {
+.nav-item:hover {
   background: #f5f4ef;
 }
 
-.navItemActive {
+.nav-item-active {
   background: #2c3e1f;
   color: #fff;
   border-radius: 0 20px 20px 0;
   margin-right: 12px;
 }
 
-.navItemActive:hover {
+.nav-item-active:hover {
   background: #2c3e1f;
 }
 
-.navDivider {
+.nav-divider {
   border-top: 0.5px solid #e0ddd5;
   margin: 8px 0;
 }
 
-.sidebarBottom {
+.sidebar-bottom {
   padding: 12px 14px;
   border-top: 0.5px solid #e0ddd5;
 }
 
-.userRow {
+.user-row {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.userAvatar {
+.user-avatar {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -114,26 +134,21 @@
   flex-shrink: 0;
 }
 
-.userInfo p {
+.user-info p {
   font-size: 11px;
-  color: #1a1a18;
   font-weight: 500;
+  color: #1a1a18;
 }
 
-.userInfo span {
+.user-info span {
   font-size: 10px;
   color: #888;
 }
 
-/* ---- Main ---- */
-.main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
+/* ================================
+   Topbar
+   ================================ */
 
-/* Topbar */
 .topbar {
   background: #fff;
   border-bottom: 0.5px solid #e0ddd5;
@@ -143,23 +158,23 @@
   gap: 12px;
 }
 
-.topbarLeft {
+.topbar-left {
   flex: 1;
 }
 
-.topbarLeft h1 {
+.topbar-left h1 {
   font-size: 15px;
   font-weight: 500;
   color: #1a1a18;
 }
 
-.topbarLeft p {
+.topbar-left p {
   font-size: 11px;
   color: #888;
   margin-top: 2px;
 }
 
-.searchBox {
+.search-box {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -190,7 +205,10 @@
   background: #f5f4ef;
 }
 
-/* Content grid */
+/* ================================
+   Content grid
+   ================================ */
+
 .content {
   flex: 1;
   display: grid;
@@ -199,7 +217,10 @@
   overflow-y: auto;
 }
 
-/* Panel (card) */
+/* ================================
+   Panel (shared card)
+   ================================ */
+
 .panel {
   background: #fff;
   border: 0.5px solid #e0ddd5;
@@ -208,72 +229,78 @@
   padding: 14px;
 }
 
-.panelHeader {
+.panel-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 12px;
 }
 
-.panelTitle {
+.panel-title {
   font-size: 13px;
   font-weight: 500;
   color: #1a1a18;
 }
 
-.seeAll {
+.see-all {
   font-size: 11px;
   color: #888;
   cursor: pointer;
 }
 
-/* ---- Bills & Payments ---- */
-.billsGrid {
+/* ================================
+   Bills & Payments
+   ================================ */
+
+.bills-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
 }
 
-.billCard {
+.bill-card {
   background: #f5f4ef;
   border-radius: 8px;
   padding: 10px 12px;
   border: 0.5px solid #e0ddd5;
 }
 
-.billIcon {
+.bill-icon {
   width: 28px;
   height: 28px;
   border-radius: 6px;
   margin-bottom: 6px;
 }
 
-.billLabel {
+.bill-label {
   font-size: 10px;
   color: #888;
   margin-bottom: 3px;
 }
 
-.billAmount {
+.bill-amount {
   font-size: 14px;
   font-weight: 500;
   color: #1a1a18;
 }
 
-.billChange {
+.bill-change {
   font-size: 10px;
   color: #3b6d11;
   margin-top: 3px;
 }
 
-/* ---- Budget Health ---- */
-.budgetLegend {
+/* ================================
+   Monthly Budget Health
+   ================================ */
+
+.budget-legend {
   display: flex;
   gap: 12px;
   margin-bottom: 12px;
 }
 
-.legendItem {
+.legend-item {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -281,13 +308,13 @@
   color: #888;
 }
 
-.legendDot {
+.legend-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
 }
 
-.gaugeWrap {
+.gauge-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -295,47 +322,50 @@
   height: 130px;
 }
 
-.gaugeLabel {
+.gauge-label {
   position: absolute;
   bottom: 10px;
   text-align: center;
 }
 
-.gaugeAvail {
+.gauge-avail {
   font-size: 9px;
   color: #888;
 }
 
-.gaugeAmount {
+.gauge-amount {
   font-size: 16px;
   font-weight: 500;
   color: #1a1a18;
 }
 
-.gaugeDaily {
+.gauge-daily {
   font-size: 10px;
   color: #888;
 }
 
-/* ---- Spending Allocation ---- */
-.allocTotal {
+/* ================================
+   Spending Allocation
+   ================================ */
+
+.alloc-total {
   font-size: 10px;
   color: #888;
 }
 
-.allocAmount {
+.alloc-amount {
   font-size: 18px;
   font-weight: 500;
   color: #1a1a18;
 }
 
-.allocChange {
+.alloc-change {
   font-size: 10px;
   color: #3b6d11;
   margin-left: 6px;
 }
 
-.allocBar {
+.alloc-bar {
   display: flex;
   border-radius: 6px;
   overflow: hidden;
@@ -343,17 +373,17 @@
   margin: 8px 0 10px;
 }
 
-.barSeg1 { flex: 0.55; background: #2c3e1f; }
-.barSeg2 { flex: 0.27; background: #9db88a; }
-.barSeg3 { flex: 0.18; background: #d5dece; }
+.bar-seg1 { flex: 0.55; background: #2c3e1f; }
+.bar-seg2 { flex: 0.27; background: #9db88a; }
+.bar-seg3 { flex: 0.18; background: #d5dece; }
 
-.barLegend {
+.bar-legend {
   display: flex;
   gap: 12px;
   margin-bottom: 10px;
 }
 
-.barLegItem {
+.bar-leg-item {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -361,56 +391,59 @@
   color: #888;
 }
 
-.allocTable {
+.alloc-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.allocTable tr {
+.alloc-table tr {
   border-top: 0.5px solid #e0ddd5;
 }
 
-.allocTable td {
+.alloc-table td {
   padding: 6px 0;
   font-size: 11px;
   color: #888;
 }
 
-.allocTable td:nth-child(2) {
+.alloc-table td:nth-child(2) {
   text-align: center;
 }
 
-.allocTable td:last-child {
+.alloc-table td:last-child {
   text-align: right;
   font-weight: 500;
   color: #1a1a18;
 }
 
-/* ---- Recent Transactions ---- */
-.txnHeader {
+/* ================================
+   Recent Transactions
+   ================================ */
+
+.txn-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
 }
 
-.txnSince {
+.txn-since {
   font-size: 10px;
   color: #888;
 }
 
-.txnRow {
+.txn-row {
   display: flex;
   align-items: center;
   padding: 7px 0;
   border-bottom: 0.5px solid #e0ddd5;
 }
 
-.txnRow:last-child {
+.txn-row:last-child {
   border-bottom: none;
 }
 
-.txnIcon {
+.txn-icon {
   width: 32px;
   height: 32px;
   border-radius: 8px;
@@ -418,32 +451,32 @@
   flex-shrink: 0;
 }
 
-.txnInfo {
+.txn-info {
   flex: 1;
 }
 
-.txnName {
+.txn-name {
   font-size: 12px;
   font-weight: 500;
   color: #1a1a18;
 }
 
-.txnCat {
+.txn-cat {
   font-size: 10px;
   color: #888;
 }
 
-.txnRight {
+.txn-right {
   text-align: right;
 }
 
-.txnAmount {
+.txn-amount {
   font-size: 12px;
   font-weight: 500;
   color: #1a1a18;
 }
 
-.txnDate {
+.txn-date {
   font-size: 10px;
   color: #888;
 }
